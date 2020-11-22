@@ -7,3 +7,8 @@ The Data preprocessing step is to convert the real image into features using sim
 
 ## Step 2
 Run the "PaddyImagesToCsv.py" file using your desired python editor od by python command 'python PaddyImagesToCsv.py'
+
+# Paddy Diseases Classification Application
+
+The Application is under Development. The Final version will be released soon. 
+Working on IT
