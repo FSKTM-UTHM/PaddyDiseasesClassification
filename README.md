@@ -7,9 +7,8 @@ The Data preprocessing step is to convert the real image into features using sim
 'IMG_DIR = C:/Users/MakAlienware/Desktop/TestData'
 
 ## Step 2
-Run the "PaddyImagesToCsv.py" file using your desired python editor od by python command 'python PaddyImagesToCsv.py'
+Run the "PaddyImagesToCsv.py" file using your desired python editor or by python command 'python PaddyImagesToCsv.py'
 
 # Application
 
-The Application is under Development. The Final version will be released soon. 
-Working on IT
+The Application is under Development. The Final version will be released soon.
