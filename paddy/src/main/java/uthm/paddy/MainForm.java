@@ -25,6 +25,8 @@ import javax.swing.JTextPane;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import org.deeplearning4j.eval.Evaluation;
+
 public class MainForm {
 
 	private JFrame frmPaddyDiseaseClassification;
@@ -187,7 +189,8 @@ public class MainForm {
 
 		tbn_classification.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String result = "";
+				ta_results.setText("");
+				Evaluation result = null;
 //				File dataFile = new File(tf_datafile.getText());
 //				String destinationFilepath = System.getProperty("user.dir")+"\\src\\main\\resources\\"+dataFile.getName();
 //				boolean flag  = copyFileToResources(fileTarget.getAbsolutePath());
@@ -198,7 +201,16 @@ public class MainForm {
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
-				ta_results.setText(result);
+				ta_results.setText("Accuracy = "+ result.accuracy()
+						+"\n"+
+						"F1 Score = "+result.f1()
+						+"\n"+
+						"Precision = "+ result.precision()
+						+"\n"+
+						"Recall = "+result.recall()
+						+"\n"+
+						"Confusion Matrix = "+result.getConfusion().toString()
+						);
 			}
 
 //			}

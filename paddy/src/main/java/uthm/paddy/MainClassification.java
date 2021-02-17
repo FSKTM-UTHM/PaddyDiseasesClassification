@@ -34,11 +34,13 @@ public class MainClassification {
 //		classifiyData(args);
 //
 //	}
-	public static String classifiyData(File fileName, int Numfeatures, int Numclasses) {
+	public static Evaluation classifiyData(File fileName, int Numfeatures, int Numclasses) {
+		
+		
 		FEATURES_COUNT = Numfeatures;
 		CLASSES_COUNT = Numclasses;
 		BasicConfigurator.configure();
-		String output = null;
+		Evaluation output = null;
 		try (RecordReader recordReader = new CSVRecordReader(0, ',')) {
 			recordReader.initialize(new FileSplit(fileName));
 
@@ -55,16 +57,18 @@ public class MainClassification {
 			DataSet trainingData = testAndTrain.getTrain();
 			DataSet testingData = testAndTrain.getTest();
 
-			output = irisNNetwork(trainingData, testingData);
+			output = ANNetwork(trainingData, testingData);
 		} catch (Exception e) {
 			Thread.dumpStack();
 			new Exception("Stack trace").printStackTrace();
 			System.out.println("Error: " + e.getLocalizedMessage());
 		}
+//		FinalOutput.add(item);
+		
 		return output;
 	}
 
-	private static String irisNNetwork(DataSet trainingData, DataSet testData) {
+	private static Evaluation ANNetwork(DataSet trainingData, DataSet testData) {
 
 		MultiLayerConfiguration configuration = new NeuralNetConfiguration.Builder().activation(Activation.TANH)
 				.weightInit(WeightInit.XAVIER).updater(new Nesterovs(0.1, 0.9)).l2(0.0001).list()
@@ -83,7 +87,7 @@ public class MainClassification {
 		Evaluation eval = new Evaluation(10);
 		eval.eval(testData.getLabels(), output);
 		// System.out.println(eval.stats());
-
-		return eval.stats();
+		
+		return eval;
 	}
 }
