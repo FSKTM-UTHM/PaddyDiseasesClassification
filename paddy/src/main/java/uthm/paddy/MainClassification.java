@@ -1,5 +1,7 @@
 package uthm.paddy;
 
+import java.io.File;
+
 import org.apache.log4j.BasicConfigurator;
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
@@ -25,20 +27,21 @@ import org.nd4j.linalg.io.ClassPathResource;
 
 public class MainClassification {
 
-	private static final int FEATURES_COUNT = 784;
-	private static final int CLASSES_COUNT = 10;
+	private static int FEATURES_COUNT = 0;
+	private static int CLASSES_COUNT = 0;
 
 //	public MainClassification(String args) {
 //		BasicConfigurator.configure();
 //		classifiyData(args);
 //
 //	}
-	public static String classifiyData(String fileName) {
-		
+	public static String classifiyData(File fileName, int Numfeatures, int Numclasses) {
+		FEATURES_COUNT = Numfeatures;
+		CLASSES_COUNT = Numclasses;
 		BasicConfigurator.configure();
 		String output = null;
 		try (RecordReader recordReader = new CSVRecordReader(0, ',')) {
-			recordReader.initialize(new FileSplit(new ClassPathResource(fileName).getFile()));
+			recordReader.initialize(new FileSplit(fileName));
 
 			DataSetIterator iterator = new RecordReaderDataSetIterator(recordReader, 500, FEATURES_COUNT,
 					CLASSES_COUNT);
