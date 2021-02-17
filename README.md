@@ -11,4 +11,22 @@ Run the "PaddyImagesToCsv.py" file using your desired python editor or by python
 
 # Application
 
-The Application is under Development. The Final version will be released soon.
+## Prerequisites
+Download and install maven 'https://maven.apache.org/download.cgi'
+
+## Step 1
+Download the source code from the following link 'https://github.com/FSKTM-UTHM/PaddyDiseasesClassification' or clone driectly from 'https://github.com/FSKTM-UTHM/PaddyDiseasesClassification.git'
+
+## Step 2
+Go to the directory 'PaddyDiseasesClassification/paddy (The Actual java project is inside the directory 'paddy')'
+
+## Step 3
+Import the project to you eclipse using the following tutorials 'https://www.lagomframework.com/documentation/1.6.x/java/EclipseMavenInt.html'
+
+## Step 4
+Run the 'MainForm.java' file.
+
+## Screen 1
+## Screen 2
+## Screen 3
+
