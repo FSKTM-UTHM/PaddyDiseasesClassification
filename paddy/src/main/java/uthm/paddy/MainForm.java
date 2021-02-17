@@ -194,7 +194,7 @@ public class MainForm {
 
 //				if(flag) {
 				try {
-					result = MainClassification.classifiyData(fileTarget, FeaturesNum, ClassNum);
+					result = uthm.paddy.MainClassification.classifiyData(fileTarget, FeaturesNum, ClassNum);
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
