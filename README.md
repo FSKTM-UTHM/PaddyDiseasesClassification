@@ -28,7 +28,3 @@ Import the maven existing project to you eclipse using the following [Project Im
 ## Step 4
 Run the ``MainForm.java'' file.
 
-## Screen 1
-## Screen 2
-## Screen 3
-
